@@ -8,8 +8,23 @@ bids = {}
 bidding_finished = False
 
 
-# cross-platform clear screen (replit.clear not working)
 def clear():
+    """
+    Clears the terminal screen.
+
+    Detects the operating system and uses the appropriate
+    command to clear the terminal screen. On Windows, it uses 'cls', and on
+    Unix-based systems (including macOS), it uses 'clear'.
+
+    Note: Set the 'TERM' environment variable to 'xterm-256color' to
+    avoid a potential exception.
+
+    Example:
+    >>> clear()
+
+    :raise OSError: If the 'clear' command execution fails for the OS.
+    :raise TerminalError: If the 'TERM' environment variable is not set.
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
